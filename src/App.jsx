@@ -113,10 +113,16 @@ function App() {
       <div className={`invitation-overlay ${isOpen ? 'opened' : ''}`}>
         <div className="overlay-mandala"></div>
         <div className="overlay-content">
-          <div className="shree-ganesh">|| श्री गणेशाय नमः || &nbsp; || Shree Ganeshaya Namah ||</div>
+          <div className="shree-ganesh" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+            <div>|| Shree Ganeshaya Namah ||</div>
+            <div style={{ fontSize: '0.85em', fontWeight: '500', opacity: 0.85 }}>|| श्री गणेशाय नमः ||</div>
+          </div>
           <h1 className="overlay-names" style={{ borderBottom: 'none', paddingBottom: '0' }}>MOHIT & ANJALI</h1>
           <h2 className="overlay-names-mr" style={{ fontFamily: 'Cinzel, serif', fontSize: '2rem', color: 'var(--gold)', marginBottom: '25px', borderBottom: '2px solid var(--gold)', paddingBottom: '15px' }}>मोहित आणि अंजली</h2>
-          <p className="overlay-invitation-text">Save the Date • ८ & ९ जुलै २०२६ • 8th & 9th July 2026</p>
+          <p className="overlay-invitation-text" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', lineHeight: '1.4' }}>
+            <span>Save the Date • 8th & 9th July 2026</span>
+            <span style={{ fontSize: '0.85em', opacity: 0.85, textTransform: 'none' }}>८ & ९ जुलै २०२६</span>
+          </p>
           
           <div className="overlay-buttons" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <button className="open-invite-btn" onClick={() => handleOpenInvitation('en')}>
@@ -161,7 +167,12 @@ function App() {
         {/* 1. HERO SECTION */}
         <section className="hero-section">
           <div className="hero-header">
-            <div className="shree-ganesh" style={{ color: 'var(--maroon-light)' }}>{cur.shloka}</div>
+            <div className="shree-ganesh" style={{ color: 'var(--maroon-light)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+              <div>|| Shree Ganeshaya Namah ||</div>
+              {lang === 'mr' && (
+                <div style={{ fontSize: '0.85em', fontWeight: '500', opacity: 0.85 }}>|| श्री गणेशाय नमः ||</div>
+              )}
+            </div>
             <h1 className="wedding-title" style={{ fontSize: '2.5rem', color: 'var(--maroon)' }}>{cur.title}</h1>
             <p className="invitation-quote">{cur.quote}</p>
           </div>
@@ -175,7 +186,12 @@ function App() {
           </div>
 
           <div className="hero-footer">
-            <div className="hero-date-venue">{lang === 'mr' ? '८ & ९ जुलै २०२६' : '8th & 9th July 2026'}</div>
+            <div className="hero-date-venue" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+              <span>8th & 9th July 2026</span>
+              {lang === 'mr' && (
+                <span style={{ fontSize: '0.85em', opacity: 0.85 }}>८ & ९ जुलै २०२६</span>
+              )}
+            </div>
             <div className="hero-place">{lang === 'mr' ? 'इन्दू बँक्वेट्स अँड लॉन्स, नाशिक' : 'Indu Banquets & Lawns, Nashik'}</div>
             
             {/* Countdown timer for July 8th, 2026, 5:00 PM (Engagement Ceremony start time) */}

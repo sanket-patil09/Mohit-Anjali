@@ -124,7 +124,14 @@ const EventTimeline = ({ lang = 'en' }) => {
               <img src={event.image} alt={event.title} className="event-card-image" />
             </div>
             
-            <span className="event-date-badge">{event.date}</span>
+            <span className="event-date-badge" style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '3px' }}>
+              <span>{translations.en.events.find(e => e.id === event.id).date}</span>
+              {lang === 'mr' && (
+                <span style={{ fontSize: '0.85em', opacity: 0.85, fontWeight: '500', textTransform: 'none' }}>
+                  {translations.mr.events.find(e => e.id === event.id).date}
+                </span>
+              )}
+            </span>
             <h3 className="event-title">{event.title}</h3>
             
             <div className="event-detail-item">
