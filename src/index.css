@@ -1,0 +1,11 @@
+/* Minimal reset to ensure custom styles take full effect */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
