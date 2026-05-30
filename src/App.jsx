@@ -4,7 +4,7 @@ import AudioPlayer from './components/AudioPlayer';
 import CountdownTimer from './components/CountdownTimer';
 import EventTimeline from './components/EventTimeline';
 import VenueMap from './components/VenueMap';
-import RSVPForm from './components/RSVPForm';
+import FamilySection from './components/FamilySection';
 import { MailOpen, Heart, MessageCircle, ChevronDown } from 'lucide-react';
 
 // Dynamic Petal falling background effect
@@ -292,9 +292,9 @@ function App() {
           </div>
         </section>
 
-        {/* 6. RSVP FORM */}
-        <section className="rsvp-section section-padding">
-          <RSVPForm lang={lang} />
+        {/* 6. FAMILY SECTION */}
+        <section className="family-section section-padding">
+          <FamilySection lang={lang} />
         </section>
 
         {/* 6. AUDIO PLAYER */}

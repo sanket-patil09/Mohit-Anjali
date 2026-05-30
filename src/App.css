@@ -732,11 +732,12 @@ h1, h2, h3, .wedding-title {
   min-height: 350px;
 }
 
-/* --- RSVP SECTION --- */
-.rsvp-section {
+/* --- FAMILY SECTION --- */
+.family-section {
   position: relative;
   display: flex;
   justify-content: center;
+  background-color: var(--cream-dark);
 }
 
 .rsvp-card {
