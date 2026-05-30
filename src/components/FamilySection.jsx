@@ -16,7 +16,7 @@ const FamilySection = ({ lang = 'en' }) => {
       groomMotherName: "Mrs. Manisha Chaudhari",
       groomSisterName: "Ms. Ekta Chaudhari",
       brideFatherName: "Mr. Kailas Patil",
-      brideMotherName: "Mrs. Patil",
+      brideMotherName: "Mrs. Sangita Patil",
       brideSisterName: "Ms. Shirin Patil",
       sectionTitle: "Family",
       sectionSubtitle: "Our Pillars of Strength"
@@ -34,7 +34,7 @@ const FamilySection = ({ lang = 'en' }) => {
       groomMotherName: "सौ. मनीषा चौधरी",
       groomSisterName: "कु. एकता चौधरी",
       brideFatherName: "श्री. कैलास पाटील",
-      brideMotherName: "सौ. पाटील",
+      brideMotherName: "सौ. संगीता पाटील",
       brideSisterName: "कु. शिरीन पाटील",
       sectionTitle: "कुटुंब",
       sectionSubtitle: "आमचे आधारस्तंभ"
