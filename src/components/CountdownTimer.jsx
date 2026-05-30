@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CountdownTimer = ({ targetDate }) => {
+const CountdownTimer = ({ targetDate, lang = 'en' }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -8,6 +8,23 @@ const CountdownTimer = ({ targetDate }) => {
     seconds: 0,
     isExpired: false
   });
+
+  const translations = {
+    en: {
+      days: 'Days',
+      hours: 'Hours',
+      minutes: 'Minutes',
+      seconds: 'Seconds',
+      expired: 'The Auspicious Moment Has Arrived!'
+    },
+    mr: {
+      days: 'दिवस',
+      hours: 'तास',
+      minutes: 'मिनिटे',
+      seconds: 'सेकंद',
+      expired: 'शुभमंगल सावधान! शुभ मुहूर्त आला आहे!'
+    }
+  };
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -40,19 +57,21 @@ const CountdownTimer = ({ targetDate }) => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  const currentTrans = translations[lang] || translations.en;
+
   if (timeLeft.isExpired) {
     return (
       <div className="countdown-expired">
-        <h3>The Auspicious Moment Has Arrived!</h3>
+        <h3>{currentTrans.expired}</h3>
       </div>
     );
   }
 
   const items = [
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds }
+    { label: currentTrans.days, value: timeLeft.days },
+    { label: currentTrans.hours, value: timeLeft.hours },
+    { label: currentTrans.minutes, value: timeLeft.minutes },
+    { label: currentTrans.seconds, value: timeLeft.seconds }
   ];
 
   return (
