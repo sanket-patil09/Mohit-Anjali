@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import AudioPlayer from './components/AudioPlayer';
 import CountdownTimer from './components/CountdownTimer';
@@ -42,6 +42,71 @@ const Petals = () => {
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const autoScrollTimerRef = useRef(null);
+  const isProgrammaticScrollRef = useRef(false);
+
+  const scrollToNextSection = () => {
+    const sections = Array.from(document.querySelectorAll('section, footer'));
+    if (sections.length === 0) return;
+
+    const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+    let nextSection = null;
+    for (let section of sections) {
+      const sectionTop = section.offsetTop;
+      if (sectionTop > currentScrollTop + 60) {
+        nextSection = section;
+        break;
+      }
+    }
+
+    if (nextSection) {
+      isProgrammaticScrollRef.current = true;
+      nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      setTimeout(() => {
+        isProgrammaticScrollRef.current = false;
+        scheduleNextScroll();
+      }, 1000);
+    }
+  };
+
+  const scheduleNextScroll = () => {
+    if (autoScrollTimerRef.current) {
+      clearTimeout(autoScrollTimerRef.current);
+    }
+    autoScrollTimerRef.current = setTimeout(() => {
+      scrollToNextSection();
+    }, 2000);
+  };
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleUserActivity = () => {
+      if (isProgrammaticScrollRef.current) return;
+      scheduleNextScroll();
+    };
+
+    scheduleNextScroll();
+
+    window.addEventListener('scroll', handleUserActivity);
+    window.addEventListener('wheel', handleUserActivity);
+    window.addEventListener('touchmove', handleUserActivity);
+    window.addEventListener('mousedown', handleUserActivity);
+    window.addEventListener('keydown', handleUserActivity);
+
+    return () => {
+      if (autoScrollTimerRef.current) {
+        clearTimeout(autoScrollTimerRef.current);
+      }
+      window.removeEventListener('scroll', handleUserActivity);
+      window.removeEventListener('wheel', handleUserActivity);
+      window.removeEventListener('touchmove', handleUserActivity);
+      window.removeEventListener('mousedown', handleUserActivity);
+      window.removeEventListener('keydown', handleUserActivity);
+    };
+  }, [isOpen]);
 
   const handleOpenInvitation = () => {
     setIsOpen(true);
