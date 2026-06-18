@@ -21,9 +21,9 @@ const Petals = () => {
         const rotation = Math.random() * 360;
 
         return (
-          <span 
-            key={idx} 
-            className="petal" 
+          <span
+            key={idx}
+            className="petal"
             style={{
               left: `${left}%`,
               width: `${size}px`,
@@ -123,7 +123,7 @@ function App() {
             <span>Save the Date • 8th & 9th July 2026</span>
             <span style={{ fontSize: '0.85em', opacity: 0.85, textTransform: 'none' }}>८ & ९ जुलै २०२६</span>
           </p>
-          
+
           <div className="overlay-buttons" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <button className="open-invite-btn" onClick={() => handleOpenInvitation('en')}>
               <MailOpen size={18} />
@@ -178,10 +178,10 @@ function App() {
           </div>
 
           <div className="hero-toon-container">
-            <img 
-              src="/couple_hero_toon.png" 
-              alt="Mohit and Anjali Wedding Caricature" 
-              className="hero-toon-image" 
+            <img
+              src="/couple_hero_toon.png"
+              alt="Mohit and Anjali Wedding Caricature"
+              className="hero-toon-image"
             />
           </div>
 
@@ -193,7 +193,7 @@ function App() {
               )}
             </div>
             <div className="hero-place">{lang === 'mr' ? 'इन्दू बँक्वेट्स अँड लॉन्स, नाशिक' : 'Indu Banquets & Lawns, Nashik'}</div>
-            
+
             {/* Countdown timer for July 8th, 2026, 5:00 PM (Engagement Ceremony start time) */}
             <CountdownTimer targetDate="2026-07-08T17:00:00" lang={lang} />
           </div>
@@ -215,9 +215,9 @@ function App() {
           <div className="couple-cards-container">
             {/* Groom Card */}
             <div className="couple-member-card">
-              <img 
-                src="/groom_toon.png" 
-                alt="Mohit Groom Toon" 
+              <img
+                src="/groom_toon.png"
+                alt="Mohit Groom Toon"
                 className="couple-toon-avatar"
               />
               <h3 className="couple-name">{cur.groomName}</h3>
@@ -235,9 +235,9 @@ function App() {
 
             {/* Bride Card */}
             <div className="couple-member-card">
-              <img 
-                src="/bride_toon.png" 
-                alt="Anjali Bride Toon" 
+              <img
+                src="/bride_toon.png"
+                alt="Anjali Bride Toon"
                 className="couple-toon-avatar"
               />
               <h3 className="couple-name">{cur.brideName}</h3>
@@ -267,31 +267,6 @@ function App() {
           </div>
           <VenueMap lang={lang} />
         </section>
-
-        {/* 5. WEDDING UPDATES */}
-        <section className="updates-section section-padding">
-          <div className="section-title-wrapper">
-            <span className="section-subtitle">{cur.updatesIntro}</span>
-            <h2 className="section-title">{cur.updatesTitle}</h2>
-          </div>
-          
-          <div className="updates-card">
-            <div className="updates-info">
-              <h2>{cur.whatsappTitle}</h2>
-              <p>{cur.whatsappDesc}</p>
-              <a 
-                href="https://chat.whatsapp.com/E8n9nLsQhGNHNmJE2lX0bV?mode=gi_t" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="whatsapp-group-btn"
-              >
-                <MessageCircle size={18} />
-                <span>{cur.whatsappBtn}</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* 6. FAMILY SECTION */}
         <section className="family-section section-padding">
           <FamilySection lang={lang} />
